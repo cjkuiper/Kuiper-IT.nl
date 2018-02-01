@@ -1,0 +1,60 @@
+<app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+
+<!-- Navigation-JavaScript -->
+<!-- stats -->
+
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.countup.js"></script>
+<script>
+  $('.counter').countUp();
+</script>
+<!-- //stats -->
+<!-- js for portfolio lightbox -->
+<!--light-box-files -->
+<script type="text/javascript ">
+  $(function () {
+    $('.portfolio-grids a').Chocolat();
+  });
+</script>
+<!-- /js for portfolio lightbox -->
+<!-- jarallax-js -->
+<script src="js/SmoothScroll.min.js"></script>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+      event.preventDefault();
+      $('html,body').animate({
+        scrollTop: $(this.hash).offset().top
+      }, 1000);
+    });
+  });
+</script>
+<!-- start-smoth-scrolling -->
+<!-- smooth scrolling -->
+<script type="text/javascript">
+  $(document).ready(function () {
+    /*
+      var defaults = {
+      containerID: 'toTop', // fading element id
+      containerHoverID: 'toTopHover', // fading element hover id
+      scrollSpeed: 1200,
+      easingType: 'linear'
+      };
+    */
+    $().UItoTop({
+      easingType: 'easeOutQuart'
+    });
+  });
+</script>
+
+<div class="arr-kit">
+  <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+</div>
+<!-- //smooth scrolling -->
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+

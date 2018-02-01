@@ -1,0 +1,28 @@
+<div id="experience" class="experience">
+  <div class="container">
+    <h3 class="tittle_kuiper-it two">Werkervaring</h3>
+    <p class="sub_para two">Projecten</p>
+    <div class="skill_info_wthree_agile">
+
+      <div class="work-info" *ngFor="let project of projects; let i = index"
+           [attr.data-index]="i"
+           [class.selected]="project === selectedProject">
+
+        <div [ngClass]="(i % 2) == 0 ? 'col-md-6 work-right work-right2' : 'col-md-6 work-left'">
+          <h4>{{ project.startDate | date:'MMM-yyyy' }} - {{ (project.endDate | date:'MMM-yyyy') || 'Heden' }} </h4>
+        </div>
+
+        <div [ngClass]="(i % 2) == 0 ? 'col-md-6 work-left work-left2' : 'col-md-6 work-right'">
+          <h5>
+            <span *ngIf="(i % 2) == 1" class="fa fa-dot-circle-o"> </span>
+            <!--<a [routerLink]="['/project-detail', project.id]" (click)="onSelect(contact)">{{project.name}}</a>-->
+            <span>{{project.name}}</span>
+            <span *ngIf="(i % 2) == 0" class="fa fa-dot-circle-o"> </span>
+          </h5>
+          <p>{{ project.customerName }} </p>
+        </div>
+        <div class="clearfix"> </div>        
+      </div>
+    </div>
+  </div>
+</div>
