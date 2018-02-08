@@ -5,11 +5,10 @@
   },
   "apps": [
     {
-      "root": "src",
+      "root": "ClientApp",
       "outDir": "wwwroot",
       "assets": [
         "assets",
-        "favicon.ico",
         "assets/images"
       ],
       "index": "index.html",

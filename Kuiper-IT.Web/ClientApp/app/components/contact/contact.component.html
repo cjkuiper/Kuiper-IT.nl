@@ -1,0 +1,56 @@
+<!-- /contact -->
+<div class="contact_sec" id="contact">
+  <div class="container">
+    <h3 class="tittle_kuiper-it two con">Contact</h3>
+    <p class="sub_para two">Neem contact op voor meer informatie</p>
+    <div class="contact-info skill_info">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-group">
+          <input type="text" [(ngModel)]="contactRequest.Name" name="name" id="name" class="form-control" placeholder="Naam" required #name="ngModel">
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            Naam is verplicht
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" [(ngModel)]="contactRequest.PhoneNumber" name="phoneNumber" placeholder="Telefoonnummer" class="form-control" id="phoneNumber">
+        </div>
+
+        <div class="form-group">
+          <input type="text" [(ngModel)]="contactRequest.Subject" name="subject" id="subject" class="form-control" placeholder="Onderwerp" required #subject="ngModel">
+          <div [hidden]="subject.valid || subject.pristine" class="alert alert-danger">
+            Onderwerp is verplicht
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [(ngModel)]="contactRequest.Email" name="email" id="email" class="form-control" placeholder="Email" required #email="ngModel" email>
+          <div *ngIf="email.errors?.required && !email.pristine" class="alert alert-danger">
+            Email adres is verplicht
+          </div>
+          <div [hidden]="!email.errors || email.pristine || email.errors?.required" class="alert alert-danger">
+            Email adres is ongeldig
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea type="text" [(ngModel)]="contactRequest.Message" name="message" id="message" class="form-control" placeholder="Bericht" required #message="ngModel"></textarea>
+          <div [hidden]="message.valid || message.pristine" class="alert alert-danger">
+            Bericht is verplicht
+          </div>
+        </div>
+
+        <div class="clearfix"> </div>
+
+        <!--<button type="submit" (click)="sendContactRequest(name.value, email.value, phoneNumber.value, subject.value, message.value)" class="btn btn-success">Verstuur</button>-->
+        <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">Verstuur</button>
+      </form>
+
+      </div>
+          <ul class="address two">
+            <li><i class="fa fa-map-marker" aria-hidden="true"></i> Barneveld</li>
+            <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:jeroen@kuiper-it.nl">jeroen@kuiper-it.nl</a></li>
+            <li><i class="fa fa-phone" aria-hidden="true"></i>0641373044</li>
+          </ul>
+        </div>
+      </div>
+<app-map></app-map>

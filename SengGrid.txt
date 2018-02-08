@@ -1,0 +1,3 @@
+private readonly string _sendGridApiKey = "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";
+    private readonly string _sendGridUserName = "azure_641dd19ab388fc222351ba98f3ec8ca2@azure.com";
+    private readonly string _sendGridPassword = "ku1p3r-1T01!";
