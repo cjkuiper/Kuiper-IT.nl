@@ -26,7 +26,6 @@
     "chocolat": "^0.4.19",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
-    "glyphicons-halflings": "^1.9.0",
     "jquery": "^3.2.1",
     "ngx-bootstrap": "^2.0.0-rc.0",
     "rxjs": "^5.5.2",
