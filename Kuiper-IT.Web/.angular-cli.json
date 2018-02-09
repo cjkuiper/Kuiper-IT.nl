@@ -21,7 +21,6 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.css",
-        "../node_modules/glyphicons-halflings/css/glyphicons-halflings.css",
         "../node_modules/chocolat/src/css/chocolat.css",
         "css/styles.css"
       ],
