@@ -21,7 +21,6 @@ import { ContactComponent } from './components/contact/contact.component';
 import { MapComponent } from './components/map/map.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ServicesComponent } from './components/services/services.component';
-import { StatsComponent } from './components/stats/stats.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AboutComponent } from './components/about/about.component';
 
@@ -38,7 +37,6 @@ import { AboutComponent } from './components/about/about.component';
     MapComponent,
     SkillsComponent,
     ServicesComponent,
-    StatsComponent,
     BannerComponent,
     AboutComponent
   ],

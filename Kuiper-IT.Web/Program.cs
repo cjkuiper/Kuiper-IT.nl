@@ -25,7 +25,7 @@ namespace Kuiper_IT
                  logging.AddConsole();
                  logging.AddDebug();
                })
-                .UseStartup<Startup>()
-                .Build();
+               .UseStartup<Startup>()
+               .Build();
     }
 }

@@ -10,8 +10,12 @@ namespace Kuiper_IT
 {
     public class Startup
     {
+        private readonly IHostingEnvironment _env;
+
         public Startup(IHostingEnvironment env)
-        {            
+        {
+            _env = env;
+
             var builder = new ConfigurationBuilder()
                .SetBasePath(env.ContentRootPath)
                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -26,11 +30,14 @@ namespace Kuiper_IT
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(Configuration);
-            services.AddCors(options =>
+
+            if (_env.IsDevelopment())
             {
-              options.AddPolicy("Angular",
-                  builder => builder.WithOrigins("*"));
-            });
+              services.AddCors(options =>
+              {
+                options.AddPolicy("Angular", builder => builder.WithOrigins("*"));
+              });
+            }            
             
             services.AddSpaStaticFiles(configuration =>
             {
@@ -39,23 +46,38 @@ namespace Kuiper_IT
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddAzureWebAppDiagnostics();
             loggerFactory.AddConsole();
 
-            app.UseCors("Angular");
+            if (_env.IsDevelopment())
+            {
+              app.UseCors("Angular");
+            }
+      
             app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseSpaStaticFiles();
             app.UseStaticFiles();
 
+            // allow entering routes in addressbar. If page not found and no API call, rewrite to Index
+            app.Use(async (context, next) => {
+              await next();
+              if (context.Response.StatusCode == 404 &&
+                 !Path.HasExtension(context.Request.Path.Value) &&
+                 !context.Request.Path.Value.StartsWith("/api/"))
+              {
+                context.Request.Path = "/index.html";
+                await next();
+              }
+            });
+
             app.UseSpa(
               (spa) =>
               {
                 spa.Options.SourcePath = "ClientApp";
-                if (env.IsDevelopment())
+                if (_env.IsDevelopment())
                 {
                   spa.UseAngularCliServer(npmScript: "start");
                 }

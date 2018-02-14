@@ -13,15 +13,14 @@ import { NotFoundComponent } from "./components/not-found/not-found.component";
 const routes: Routes = [
   { path: '', component: BannerComponent },
   { path: 'project-detail/:id', component: ProjectDetailComponent },
-  { path: 'Projects', component: ProjectsListComponent },
-  { path: 'About', component: AboutComponent },
-  { path: 'Services', component: ServicesComponent },
+  { path: 'Projecten', component: ProjectsListComponent },
+  { path: 'Over', component: AboutComponent },
+  { path: 'Expertise', component: ServicesComponent },
   { path: 'Skills', component: SkillsComponent },
   { path: 'Contact', component: ContactComponent },
   { path: 'Home', component: BannerComponent },
   { path: '404', component: NotFoundComponent },
   { path: '*', redirectTo: 'BannerComponent' }
-
 ];
 
 @NgModule({
