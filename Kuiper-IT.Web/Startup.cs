@@ -16,12 +16,13 @@ namespace Kuiper_IT
         {
             _env = env;
 
-            var builder = new ConfigurationBuilder()
-               .SetBasePath(env.ContentRootPath)
-               .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-               .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-               .AddEnvironmentVariables("APPSETTING_");
-            Configuration = builder.Build();
+          var builder = new ConfigurationBuilder()
+           .SetBasePath(env.ContentRootPath)
+           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+           .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+           .AddEnvironmentVariables("APPSETTING_")
+           .AddEnvironmentVariables(prefix: "ASPNETCORE_");
+            Configuration = builder.Build();     
         }
 
         public IConfiguration Configuration { get; }
