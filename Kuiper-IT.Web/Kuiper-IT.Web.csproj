@@ -14,6 +14,11 @@
 
   <ItemGroup>
     <None Remove="Properties\PublishProfiles\Kuiper-IT - Web Deploy.pubxml" />
+    <None Remove="sitemap.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\assets\sitemap.xml" />
   </ItemGroup>
 
   <ItemGroup>

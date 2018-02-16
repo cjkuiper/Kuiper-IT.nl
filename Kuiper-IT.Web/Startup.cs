@@ -80,11 +80,8 @@ namespace Kuiper_IT
                 if (_env.IsDevelopment())
                 {
                   spa.UseAngularCliServer(npmScript: "start");
-                }
-                else
-                {
-                  spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
-                }
+                  //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                }                
               }
            );      
         }
