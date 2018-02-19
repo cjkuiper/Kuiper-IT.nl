@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.AzureAppServices;
 
 namespace Kuiper_IT
 {
@@ -15,8 +16,8 @@ namespace Kuiper_IT
 
         public Startup(ILoggerFactory loggerFactory, IHostingEnvironment env)
         {
-            _logger = loggerFactory.CreateLogger<Startup>();
             _env = env;
+            _logger = loggerFactory.CreateLogger<Startup>();
 
             var builder = new ConfigurationBuilder()
              .SetBasePath(env.ContentRootPath)
@@ -33,8 +34,6 @@ namespace Kuiper_IT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            _logger.LogDebug($"ConfigureServices started for environment: {_env.EnvironmentName}");
-
             services.AddSingleton(Configuration);
 
             if (_env.IsDevelopment())
@@ -54,11 +53,18 @@ namespace Kuiper_IT
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
-            _logger.LogDebug($"Configure started for environment: {_env.EnvironmentName}");
-            loggerFactory.AddAzureWebAppDiagnostics();
-            loggerFactory.AddConsole();
-            _logger.LogDebug($"Configure started for environment: {_env.EnvironmentName}");
+            _logger.LogInformation($"Configure started for environment: {_env.EnvironmentName}");
+            loggerFactory.AddAzureWebAppDiagnostics(new AzureAppServicesDiagnosticsSettings
+            {
+              OutputTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss zzz} [{Level}] {RequestId}-{SourceContext}: {Message}{NewLine}{Exception}"
+            });
 
+            if (_env.IsDevelopment())
+            {
+              loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            }
+            loggerFactory.AddDebug();
+            
             if (_env.IsDevelopment())
             {
               app.UseCors("Angular");
