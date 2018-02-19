@@ -11,9 +11,11 @@ namespace Kuiper_IT
     public class Startup
     {
         private readonly IHostingEnvironment _env;
+        private ILogger _logger;
 
-        public Startup(IHostingEnvironment env)
+        public Startup(ILoggerFactory loggerFactory, IHostingEnvironment env)
         {
+            _logger = loggerFactory.CreateLogger<Startup>();
             _env = env;
 
             var builder = new ConfigurationBuilder()
@@ -31,6 +33,8 @@ namespace Kuiper_IT
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            _logger.LogDebug($"ConfigureServices started for environment: {_env.EnvironmentName}");
+
             services.AddSingleton(Configuration);
 
             if (_env.IsDevelopment())
@@ -50,8 +54,10 @@ namespace Kuiper_IT
 
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory)
         {
+            _logger.LogDebug($"Configure started for environment: {_env.EnvironmentName}");
             loggerFactory.AddAzureWebAppDiagnostics();
             loggerFactory.AddConsole();
+            _logger.LogDebug($"Configure started for environment: {_env.EnvironmentName}");
 
             if (_env.IsDevelopment())
             {
