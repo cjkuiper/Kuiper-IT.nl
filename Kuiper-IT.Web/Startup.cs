@@ -21,8 +21,8 @@ namespace Kuiper_IT
 
             var builder = new ConfigurationBuilder()
              .SetBasePath(env.ContentRootPath)
-             .AddEnvironmentVariables("APPSETTING_")
-             .AddEnvironmentVariables(prefix: "ASPNETCORE_")
+             .AddEnvironmentVariables()
+             
              .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
              .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
       

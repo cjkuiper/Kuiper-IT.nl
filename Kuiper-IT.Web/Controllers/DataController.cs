@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Kuiper_IT.Data;
 using Kuiper_IT.Models;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -19,6 +20,7 @@ namespace Kuiper_IT.Controllers
   {
     private IConfiguration _configuration;
     private readonly ILogger _logger;
+    private readonly IHostingEnvironment _env;
 
     private readonly List<Project> Projects = new List<Project> {
           new Project { Id = 1, CustomerName = "KPN", StartDate = new DateTime(2016, 09, 01), Name = "Doorontwikkeling 112", Role = "Software Engineer / Team lead" },
@@ -29,11 +31,19 @@ namespace Kuiper_IT.Controllers
           new Project { Id = 6, CustomerName = "Alfam Consumer Finance", StartDate = new DateTime(2012, 08, 31), EndDate = new DateTime(2007,01,01),Name = "Verschillende projecten" }
         };
 
-    public DataController(IConfiguration configuration, ILogger<DataController> logger)
+    public DataController(IConfiguration configuration, ILogger<DataController> logger, IHostingEnvironment env)
     {
       _configuration = configuration;
       _logger = logger;
-    }       
+      _env = env;
+    }
+
+    [HttpGet]
+    [Route("api/Data/Environment")]
+    public string GetEnvironment()
+    {
+      return _env.EnvironmentName;
+    }
 
     [HttpGet]
     [Route("api/Data/Projects")]
