@@ -195,7 +195,7 @@ ClientBin/
 node_modules/
 orleans.codegen.cs
 SendGrid.txt
-**/*.appsettings.Development.json
+appsettings.Development
 
 # Since there are multiple workflows, uncomment next line to ignore bower_components
 # (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
@@ -262,3 +262,4 @@ paket-files/
 __pycache__/
 *.pyc
 /Certificaten
+/SengGrid.txt

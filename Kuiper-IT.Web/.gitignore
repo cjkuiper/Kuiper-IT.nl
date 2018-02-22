@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # AppSettings
-/appsettings.Development.json
+appsettings.Development.json
