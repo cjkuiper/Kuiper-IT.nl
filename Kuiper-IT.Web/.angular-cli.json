@@ -26,8 +26,9 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/chocolat/dist/js/jquery.chocolat.min.js",
         "js/easing.js",
-        "../node_modules/chocolat/src/js/jquery.chocolat.js",
         "js/jquery.countup.js",
         "js/jquery.waypoints.min.js",
         "js/move-top.js",

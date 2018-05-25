@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\assets\robots.txt" />
     <None Remove="Properties\PublishProfiles\Kuiper-IT - Web Deploy.pubxml" />
     <None Remove="sitemap.xml" />
   </ItemGroup>
@@ -47,6 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\robots.txt" />
     <TypeScriptCompile Include="proxy.config.json" />
   </ItemGroup>
 
