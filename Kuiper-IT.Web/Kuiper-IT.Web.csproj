@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
 	<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
 	<AssemblyName>Kuiper-IT.Web</AssemblyName>
 	<RootNamespace>Kuiper-IT.Web</RootNamespace>
@@ -24,17 +24,17 @@
 
   <ItemGroup>
 	
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.4" />
 	
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.2.0" />
 	
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.0.0-rc1-final" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.2.0" />
 	
-    <PackageReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
+    <PackageReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.2" />
 	
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.3" />
 	
-    <PackageReference Include="sendgrid" Version="9.9.0" />
+    <PackageReference Include="sendgrid" Version="9.11.0" />
   </ItemGroup>
 
   <ItemGroup>
