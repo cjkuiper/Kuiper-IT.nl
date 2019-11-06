@@ -23,10 +23,10 @@ namespace Kuiper_IT.Controllers
     private readonly IHostingEnvironment _env;
 
     private readonly List<Project> Projects = new List<Project> {
-          new Project { Id = 1, CustomerName = "KPN", StartDate = new DateTime(2016, 09, 01), Name = "Doorontwikkeling 112", Role = "Software Engineer / Team lead" },
-          new Project { Id = 2, CustomerName = "KPN", StartDate = new DateTime(2016, 08, 31), EndDate = new DateTime(2016,08,01), Name = "Realtime dashboard", Role = "Software Engineer" },
-          new Project { Id = 3, CustomerName = "MSI-ACI", StartDate = new DateTime(2015, 07, 30), EndDate = new DateTime(2016,07,31),Name = "FlexTrack" },
-          new Project { Id = 4, CustomerName = "MSI-ACI", StartDate = new DateTime(2015, 06, 30), EndDate = new DateTime(2014,10,01),Name = "Cor5" },
+          new Project { Id = 1, CustomerName = "ABN Amro Hypotheken", StartDate = new DateTime(2018, 08, 01), Name = "Brondata door de keten", Role = "Software Engineer" },
+          new Project { Id = 1, CustomerName = "VGZ", StartDate = new DateTime(2018, 05, 01), EndDate = new DateTime(2018, 07,31), Name = "Bouw Zakelijke Portalen", Role = "Software Engineer" },
+          new Project { Id = 1, CustomerName = "KPN", StartDate = new DateTime(2016, 08, 01), EndDate = new DateTime(2018, 04,30), Name = "Doorontwikkeling 112", Role = "Software Engineer / Team lead" },
+          new Project { Id = 4, CustomerName = "MSI-ACI", StartDate = new DateTime(2015, 06, 30), EndDate = new DateTime(2016,07,31),Name = "FlexTrack" },
           new Project { Id = 5, CustomerName = "Asito", StartDate = new DateTime(2012, 09, 01), EndDate = new DateTime(2014,09,30) ,Name = "Project 1220" },
           new Project { Id = 6, CustomerName = "Alfam Consumer Finance", StartDate = new DateTime(2012, 08, 31), EndDate = new DateTime(2007,01,01),Name = "Verschillende projecten" }
         };
